@@ -1,6 +1,6 @@
 /*
 Bengisu Bilgen
-CS 56 - Assignment 2
+
 The Program creates a package tracker that uses
 a lambda expression, an anonymous class, and a named subclass
 to create an instance of an interface.
