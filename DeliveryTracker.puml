@@ -1,0 +1,54 @@
+@startuml DeliveryTracker
+
+interface Item {
+    + String getDescription()
+}
+
+class Letter {
+    - String text
+    + Letter(String text)
+    + String getText()
+    + String getDescription()
+}
+
+class DeliveryPackage {
+    - Item[] items
+    - int itemCount
+    + DeliveryPackage(int capacity)
+    + void addItem(Item item)
+    + String getPackageDescription()
+}
+
+abstract class TransportVehicle {
+    + String name
+    + TransportVehicle(String name)
+    + abstract void load(DeliveryPackage deliveryPackage)
+}
+
+class CargoShip {
+    + CargoShip(String name)
+    + void load(DeliveryPackage deliveryPackage)
+}
+
+class CargoAirplane {
+    + CargoAirplane(String name)
+    + void load(DeliveryPackage deliveryPackage)
+}
+
+class MailTruck {
+    + MailTruck(String name)
+    + void load(DeliveryPackage deliveryPackage)
+}
+
+class Pants {
+    + String getDescription()
+}
+
+Item *-- Letter
+Item *-- Pants
+DeliveryPackage *-- Item
+TransportVehicle <|-- CargoShip
+TransportVehicle <|-- CargoAirplane
+TransportVehicle <|-- MailTruck
+
+@enduml
